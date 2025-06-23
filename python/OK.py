@@ -1,6 +1,43 @@
 import math
 import random
 
+ # () -> parentheses      for tuples
+ # [] -> square brackets  for list 
+ # {} -> curly braces.   for dictionary and set
+
+
+
+# Python is a dynamically typed language, meaning you don't need to declare the type of a variable when you create it.
+# The type is determined at runtime based on the value assigned to the variable.
+# For example:
+x = 5  # x is an integer
+y = 3.14  # y is a float
+z = "Hello"  # z is a string
+# You can change the type of a variable by assigning a new value of a different type:
+x = "Now I'm a string"  # x is now a string
+# Python supports several built-in data types, including:
+# 1. Numeric Types:
+#    - int: Integer values (e.g., 5, -3)
+#    - float: Floating-point values (e.g., 3.14, -0
+# 2. String Type:
+#    - str: Sequence of characters (e.g., "Hello", 'Python')
+# 3. Sequence Types:
+#    - list: Ordered, mutable collection of items (e.g., [1,
+# 2, 3], ['a', 'b', 'c'])
+#    - tuple: Ordered, immutable collection of items (e.g., (1,
+# 2, 3), ('a', 'b', 'c'))
+# 4. Set Type:
+#    - set: Unordered collection of unique items (e.g., {1, 2, 3}, {'a', 'b', 'c'})
+# 5. Mapping Type:
+#    - dict: Collection of key-value pairs (e.g., {'name': 'Alice', 'age': 30}, {1: 'one', 2: 'two'})
+# 6. Boolean Type:
+#    - bool: Represents True or False values (e.g., True, False)
+# 7. None Type:
+#    - NoneType: Represents the absence of a value (e.g., None)
+# 8. Complex Type:
+#    - complex: Represents complex numbers (e.g., 3 + 4j,where 'j' is the imaginary unit)
+
+
 # important note:
 # In Python, variables are references to objects in memory.
 # When you assign a variable to another variable, you are creating a reference to the same object, not a copy of it.
@@ -373,3 +410,238 @@ print(tea_shop["chai"].get("masala"))  # Output: 10, retrieves the price of "mas
 
 squared_num_withnum = {x:x**2 for x in range(11)}  # List comprehension to create a list of squares of numbers from 0 to 10
 print(squared_num_withnum)  # Output: {0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81, 10: 100}
+squared_num_withnum.clear()  # Clears the dictionary, removes all key-value pairs
+print(squared_num_withnum)  # Output: {}, empty dictionary
+
+keys = ["masala", "ginger", "lemon"]
+default_key = "unknown"
+
+
+dictionary = dict.fromkeys(keys, default_key)  # Creates a dictionary with keys from the list and a default value
+print(dictionary)  # Output: {'masala': 'unknown', 'ginger':  'unknown', 'lemon': 'unknown'}
+
+dict1 = dict.fromkeys(keys,keys)  # Creates a dictionary with keys from the list and the list itself as the value
+print(dict1)  # Output: {'masala': ['masala', 'ginger', 'lemon'], 'ginger': ['masala', 'ginger', 'lemon'], 'lemon': ['masala', 'ginger', 'lemon']}  
+
+
+tea_types = ("masala", "ginger", "lemon","ginger")  # Tuple of tea types
+# tea_types[0] = "cardamom"  # This will raise an error because tuples are immutable
+print(tea_types[0])
+
+new_types = ("cardamom", "mint", "honey")  # New tuple of tea types
+all_types = new_types + tea_types  # Concatenates the new tuple to the existing tuple
+print(all_types)  # Output: ('masala', 'ginger', 'lemon', 'cardamom', 'mint', 'honey') // applies order 
+
+if "masala" in all_types:
+    print("masala is in the tuple")
+    
+new_types.count("golanfi")  # Output: 0, counts occurrences of "golafi" in the tuple
+new_types.index("mint")  # Output: 1, finds the index of "mint" in the tuple
+print(tea_types.count("ginger")) 
+
+(MASALA, GINGER, LEMON,GINGER) = tea_types  # it is used for tyUnpacking the tuple into variables
+print(MASALA)  # Output: masala
+
+tuple = ("meet",(1,2,3,4),"jay")
+
+print(tuple[1][3])  #nesting tuples are allowed
+
+
+# #q1# This program checks if a person is eligible to vote based on their age
+# age = int(input("Enter your age: "))  # Takes input from the user and converts it to an integer
+
+# def age_check(age):
+#     if age < 18 :
+#         print("You are not eligible to vote")
+#     elif age >= 18 and age < 60:
+#         print("You are eligible to vote")
+#     else:
+#         print("You are eligible to vote and you are a senior citizen")
+        
+# age_check(age)
+
+
+# #q2 # This program calculates the ticket price based on the day of the week and the person's age
+# age = int(input("Enter your age: "))  # Takes input from the user and converts it to an integer
+# s = "wednesday"
+
+# def age_ticket(age):
+#     price = 12 if age >= 18 else 8  # Ternary operator to set price based on age
+#     if s == "wednesday":
+#         price -= 2
+#         return price
+        
+# price = age_ticket(age)
+# print(f"Your ticket price is $",price)  # Prints the ticket price
+        
+#q3 
+fruit = "banana"
+color = "yellow"
+if fruit!= "banana":
+    print("This is not a banana")
+    exit()
+
+if fruit == "banana" and color == "yellow":
+    print("The banana is ripe")
+elif fruit == "banana" and color == "brown":
+    print("The banana is overripe")
+else: 
+    print("The banana is not ripe")
+    
+    
+#q4
+order_size = "medium"
+extra_shot = True
+
+if extra_shot:
+    coffee = order_size + " coffee with an extra shot"
+else:
+    coffee = order_size + " coffee without an extra shot"
+    
+print(f"Your order is: {coffee}")  # Prints the coffee order based on size and extra shot
+
+#q5
+passis = "nubuuebfiuheoifw"
+length =len(passis)
+if(length == 0):
+    print("Password is empty")
+    exit()
+
+if length < 4:
+    print("Password is weak")
+elif length < 10:
+    print("Password is medium")
+else:
+    print("Password is strong")
+    
+
+#q6
+# This program checks if a year is a leap year or not
+leap_year = 2024
+if (leap_year % 400 == 0) or (leap_year % 100 != 0 and leap_year % 4 == 0):
+    print(f"{leap_year} is a leap year")
+else:
+    print(f"{leap_year} is not a leap year")
+    
+    
+    
+pos_count = 0
+nums = [1,-2,43,-2,3,-3,-6,2,-9,4,5,6,7,8,9]
+for num in nums:
+    if num >0:
+       pos_count +=1
+#for loop scope ends here       
+print("the count of pos number is", pos_count)  # Output: the count of pos number is 10
+
+
+
+# nums = [1,-2,43,-2,3,-3,-6,2,-9,4,5,6,7,8,9]
+# for num in nums:
+#     if num >0:
+#         print(num, end=' ')
+ #        / if loop scope ends here
+ #    / for loop scope ends here
+
+
+
+n =10
+sum =0
+
+for i in range(1,n+1):
+    if i%2 == 0:
+        sum +=i
+print("The sum of positive even numbers is", sum)  # Output: The sum of positive even numbers is 20        
+
+multiple = 10
+table_of =3
+
+for i in range(1, multiple + 1):
+    if i == 5: 
+        continue
+    # print(f"{table_of} x {i} = {table_of * i}")  # Prints the multiplication table of 10 from 1 to 10
+    print(table_of,'x',i,'=',table_of * i) # both are same
+    
+    
+print(" ")
+
+s= "meet"
+rev_str = ""
+
+for i in s:
+    rev_str = i + rev_str  # Reverses the string by adding each character to the front
+print(rev_str)  # Output: teem, reversed string    
+
+rev_str = rev_str[::-1]  # Reverses the string using slicing
+print(rev_str)  # Output: teem, reversed string using slicing
+
+
+
+input_str = "meemt"
+for i in input_str:
+    if input_str.count(i) == 1:
+        print(f"{i} is non-repeating first character")  # Prints the first non-repeating character
+        break
+    
+    
+    
+n = 5
+mul =1
+while n>0 :
+    mul *= n  # Calculates the factorial of n
+    n -= 1
+print(f"the fact is {mul}")  # Output: the fact of 5 is 120
+
+
+
+# while True:
+#     number = int(input("enter a num b/w 1 to 10: "))
+#     if 1 <= number <= 10:
+#         print("You entered a valid number:", number)
+#         break
+#     else:
+#         print("Invalid number, please try again.")
+       
+       
+       
+        
+n = 29
+# if n% 1 == 0 and n % n == 0:
+#     print(f"{n} is a prime number")  # Output: 10 is a prime number
+# else:
+#     print(f"{n} is not a prime number")
+is_prime = True
+if n>1:
+    for i in range(2,n): # n+1 means number itself is not included in the range cause num is divisible by itself
+        if n % i == 0:
+            is_prime = False
+            break
+    else:
+        is_prime = True
+if(is_prime): 
+    print(f"{n} is a prime number")
+else:
+    print(f"{n} is not a prime number")
+    
+    
+    
+items = ["apple","banana","lichi","apple"]
+unique_items = set() # set takesn only unique elements
+
+for item in items:
+    if item in unique_items: # jo unique ele hashe to j loop ni inside aavshe
+        print("Duplicate item is:",item)
+        break
+    unique_items.add(item)
+    
+import time
+
+tries = 0
+max_tries=5
+wait_time =1
+
+while tries < max_tries:
+    print("attempt",tries+1,"-wait time:",  wait_time)
+    time.sleep(wait_time)
+    wait_time *=2
+    tries +=1
+
