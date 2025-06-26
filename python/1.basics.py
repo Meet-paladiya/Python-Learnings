@@ -635,13 +635,13 @@ for item in items:
     
 import time
 
-tries = 0
-max_tries=5
-wait_time =1
+# tries = 0
+# max_tries=5
+# wait_time =1
 
-while tries < max_tries:
-    print("attempt",tries+1,"-wait time:",  wait_time)
-    time.sleep(wait_time)
-    wait_time *=2
-    tries +=1
+# while tries < max_tries:
+#     print("attempt",tries+1,"-wait time:",  wait_time)
+#     time.sleep(wait_time)
+#     wait_time *=2
+#     tries +=1
 
